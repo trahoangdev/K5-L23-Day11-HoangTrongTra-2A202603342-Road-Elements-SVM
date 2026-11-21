@@ -52,7 +52,7 @@ Bạn kiểm lô của tôi: Nguyễn Quốc Hưng.  Quyết định nhận đư
 | QC1-06 | 2 | A01 L2 — Giữ `kind=double` vì ảnh thấy hai dải sơn trắng song song bên trái. A01 R2 — Giữ `color=yellow` vì vạch sát lề phải có màu vàng trên ảnh gốc. | Không đổi hai thuộc tính |
 | QC1-01 | 1 | A07 — Giữ `weather=rain` vì mặt đường ướt rõ và phản chiếu ánh sáng. Road v1.0 dùng `rain` khi mặt đường ướt rõ do mưa. | Không đổi tag |
 
-Phiếu ghi 1 lỗi nặng, 2 lỗi chính và 1 lỗi nhẹ. Phiếu tính 2/64 nhãn là 3,125%. Hai ZIP lưu từ revision 1 có 62 nhãn trên đúng 6 ảnh được nêu. Cần đối chiếu bản ZIP Hùng đã dùng để làm rõ chênh lệch. Phiếu ghi A07 L1 được miễn vì chỉ có mép đường. Chưa có xác nhận trực tiếp từ coach về miễn trừ.
+Phiếu ghi 1 lỗi nặng, 2 lỗi chính và 1 lỗi nhẹ. Phiếu tính 2/64 nhãn là 3,125%. Hai ZIP lưu từ revision 1 có 62 nhãn trên đúng 6 ảnh được nêu. Cần đối chiếu bản ZIP Hưng đã dùng để làm rõ chênh lệch. Phiếu ghi A07 L1 được miễn vì chỉ có mép đường. Chưa có xác nhận trực tiếp từ coach về miễn trừ.
 
 Coach hướng dẫn: có vạch nhìn thấy thì gán, không thấy thì miễn. Sau khi đối chiếu lại ảnh gốc, mình chốt cả 6 vị trí theo hướng không gán thêm L1/R1. Mục 3 ghi lý do từng vị trí. Riêng A08, xem ảnh đối chiếu đã khoanh vùng ở cuối mục 6. Đây là kết quả tự kiểm theo tiêu chí của coach. Chưa có xác nhận riêng của coach cho từng vị trí. Lint vẫn đếm 6 cảnh báo vì không tự đánh giá được ảnh. Hai job front #23 và fisheye #24 ở trạng thái Completed trước khi xuất revision 1.
 
@@ -121,7 +121,7 @@ Nhãn của bạn đi vào model ở đâu? Chọn một lỗi đã sửa và n�
 
 ## 8. (Tùy chọn, buffer) Từ polyline đến đích row-anchor
 
-Đối chiếu vạch L1 ở cùng ảnh A01 của Hoàng Trọng Trà và Nguyễn Quốc Hùng. Tọa độ x tính bằng pixel.
+Đối chiếu vạch L1 ở cùng ảnh A01 của Hoàng Trọng Trà và Nguyễn Quốc Hưng. Tọa độ x tính bằng pixel.
 
 | y | 720 | 680 | 640 | 600 | 560 |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -133,7 +133,7 @@ Trả lời 3 câu:
 1. Năm số x đó chính là đích mà một model row-anchor học cho vạch này. Nếu bạn dừng polyline sớm 40 px, hàng nào đổi thành "không có làn"?
    Với L1 ở A01, nếu cắt đầu gần xe 40 px theo trục y thì điểm bắt đầu chuyển từ y=719 lên y=679. Hàng 680 đổi thành “không có làn”. Hàng 720 đã nằm ngoài polyline ngay từ đầu.
 2. So với bạn được kiểm (cùng ảnh): ở hàng 720 và hàng 560, hai bạn lệch nhau bao nhiêu pixel? Lệch ở hàng nào ảnh hưởng LKA nhiều hơn (slide 25)?
-   Ở y=720, mình không có giao điểm vì polyline dừng ở y=719, còn Hùng có x=111,7 px. Vì vậy chưa tính được độ lệch ngang ở hàng 720. Ở y=560, hai bài lệch khoảng 1,2 px (x của mình là 296,0, x của Hùng là 297,2). Sai lệch ở hàng 720 thường ảnh hưởng LKA trực tiếp hơn vì hàng này gần xe hơn.
+   Ở y=720, mình không có giao điểm vì polyline dừng ở y=719, còn Hưng có x=111,7 px. Vì vậy chưa tính được độ lệch ngang ở hàng 720. Ở y=560, hai bài lệch khoảng 1,2 px (x của mình là 296,0, x của Hưng là 297,2). Sai lệch ở hàng 720 thường ảnh hưởng LKA trực tiếp hơn vì hàng này gần xe hơn.
 3. Nếu polyline vẽ từ xa về gần (ngược quy tắc 2), cách tính trên có đổi không? Script nào sẽ gặp khó?
    Giao điểm tại mỗi hàng giữ nguyên khi đảo thứ tự điểm. `road_check.py` sẽ báo QC1-04 ở ảnh front vì polyline sai chiều gần → xa.
 
