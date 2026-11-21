@@ -3,13 +3,13 @@
   "format": "CVAT for images 1.1",
   "guideline": "Road v1.0",
   "name": "hoangtrongtra",
-  "revision": 2,
-  "created_at": "2026-11-21T02:43:29+00:00",
+  "revision": 3,
+  "created_at": "2026-11-21T03:31:54+00:00",
   "files": [
     {
       "file": "hoangtrongtra-front.zip",
-      "bytes": 7090,
-      "sha256": "780e09203abfc9df5fa2e282ced27e897133227de8c570e64ec5ee1a4acae55a",
+      "bytes": 7153,
+      "sha256": "77d56f1cb0236192cff8e62e4ab758f5c83f4700547a4461ccfdc497543bd0fc",
       "contains_images": false,
       "images": 16,
       "images_unlabelled": 0,
@@ -20,13 +20,13 @@
         "lane": 36,
         "road_curb": 1,
         "traffic_light": 35,
-        "traffic_sign": 16
+        "traffic_sign": 19
       }
     },
     {
       "file": "hoangtrongtra-fisheye.zip",
-      "bytes": 6058,
-      "sha256": "7ba2999b852fc0ddba40d2dfc2441f54dd1655c04346eea2eece35b123ec4685",
+      "bytes": 6174,
+      "sha256": "be4442320c49b233b17853f76c43e5abd184325ed94f819fcb140d478d7e9ca4",
       "contains_images": false,
       "images": 12,
       "images_unlabelled": 0,
@@ -36,7 +36,8 @@
         "drivable": 4,
         "lane": 6,
         "road_curb": 2,
-        "traffic_light": 8
+        "traffic_light": 8,
+        "traffic_sign": 1
       }
     }
   ],

@@ -1,8 +1,9 @@
 # Báo cáo cá nhân — Ngày 11
 Họ tên: Hoàng Trọng Trà             Mã học viên: 2A202603342
 Phiên bản CVAT (Help → About): 2.74.1\
-Guideline: Road v1.0    Lần nộp (`revision` trong manifest): 2\
-Thời điểm export (ngày giờ trên CVAT): 21/11/2026 (UTC+7), front 08:08, fisheye 08:09, front-extra 09:34 và fisheye-extra 09:25    Số lần nộp lại sau Rework: 0 (revision 2 là đợt bổ sung ảnh)
+Guideline: Road v1.0    Lần nộp (`revision` trong manifest): 3\
+Thời điểm export (ngày giờ trên CVAT): 21/11/2026 (UTC+7, theo XML CVAT), front 10:23, front-extra 09:34, fisheye 10:25, fisheye-extra 10:22\
+Số lần nộp lại sau Rework: 0 (revision 3 cập nhật sau tự kiểm)
 
 ## 1. Kiểm project
 | Mục | Đúng như guideline Road v1.0? | Ghi chú |
@@ -10,17 +11,18 @@ Thời điểm export (ngày giờ trên CVAT): 21/11/2026 (UTC+7), front 08:08,
 | 6 label, đúng kiểu | Có | `lane`, `road_curb` dùng polyline. `crosswalk`, `drivable` dùng polygon. `traffic_light`, `traffic_sign` dùng rectangle. |
 | Thuộc tính và giá trị | Có | Đã đối chiếu Raw Labels của project #39 với `configs/road_v1_labels.json`. |
 | 4 tag ảnh | Có | Đủ `camera`, `timeofday`, `weather`, `source` trên 28/28 ảnh. Giá trị `camera` khớp từng ảnh. Mỗi tag có thuộc tính select `value`. |
-Cách kết thúc polyline trên bản CVAT này: Bấm **Done** ở thanh trên sau khi đặt điểm cuối, hoặc nhấn `N`.| Có |
-Cách đặt tag ảnh trên bản CVAT này: Chọn công cụ **Tag**, chọn nhãn, thêm tag rồi mở **Details** để chọn `value`. Đặt `camera` trước, sau đó đặt ba tag còn lại.| Có |
 
+Cách kết thúc polyline trên bản CVAT này: Bấm **Done** ở thanh trên sau khi đặt điểm cuối, hoặc nhấn `N`.\
+Cách đặt tag ảnh trên bản CVAT này: Chọn công cụ **Tag**, chọn nhãn, thêm tag rồi mở **Details** để chọn `value`. Đặt `camera` trước, sau đó đặt ba tag còn lại.
 
+Đã kiểm đủ 5 file theo `SUBMISSION.md` và `docs/delivery_road_v1.0.md`. Bốn job #23–#26 ở trạng thái **Completed**. Mục 5 ghi kết quả kiểm hai ZIP.
 
 ## 2. Số lượng đã gán
 | Task | Ảnh | lane | road_curb | crosswalk | drivable | traffic_light | traffic_sign |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| front | 12 | 25 | 1 | 2 | 4 | 23 | 16 |
+| front | 12 | 25 | 1 | 2 | 4 | 23 | 19 |
 | front-extra (đã làm 4 / 4) | 4 | 11 | 0 | 1 | 2 | 12 | 0 |
-| fisheye | 8 | 6 | 2 | 7 | 3 | 6 | 0 |
+| fisheye | 8 | 6 | 2 | 7 | 3 | 6 | 1 |
 | fisheye-extra (đã làm 4 / 4) | 4 | 0 | 0 | 3 | 1 | 2 | 0 |
 
 ## 3. Bảng ca khó
@@ -39,6 +41,7 @@ Cách đặt tag ảnh trên bản CVAT này: Chọn công cụ **Tag**, chọn 
 | B03 | `lane` L1 | Nối qua khoảng trống dài hoặc chỉ lấy đoạn xa | Bản xuất hiện tại có 4 điểm ở đoạn xa | Cần đối chiếu đoạn sơn gần xe trước khi kết luận vạch đã đủ từ gần đến xa. |
 | B09 | `traffic_light`, `traffic_sign`, `lane` | Cụm đèn nhìn nghiêng hoặc từ sau, biển và vạch sát mép | Gán hai vỏ đèn nhận diện được với `color=unknown` | Phần biển và vạch làn chưa đủ rõ để xác định. |
 | B11 | `lane` | Vạch dọc của làn hay biên ô đỗ | Giữ bốn thẻ ảnh | Các nét nhìn rõ là vạch ô đỗ và vạch kẻ vùng đệm của ô đỗ. |
+| B02 | `traffic_sign` trên đảo giao thông | Mặt sau của biển, chưa thấy ký hiệu | `group=other`, `facing=back` | Thấy vỏ và cột biển. Hướng camera chỉ thấy mặt sau. |
 
 ## 4. Phiếu QC 1 nhận được
 Bạn kiểm lô của tôi: Nguyễn Quốc Hưng.  Quyết định nhận được: **Rework** (phiếu ngày 21/11/2026, ghi revision 1).
@@ -55,13 +58,21 @@ Coach hướng dẫn: có vạch nhìn thấy thì gán, không thấy thì mi�
 
 **Đợt bổ sung, revision 2.** Gán thủ công A13–A16 và B09–B12 trên CVAT, rồi gộp vào hai ZIP tương ứng. Ở A14, vạch vàng đôi được lưu đúng vị trí `L1`. Ở A16, bổ sung `L1`, `R1`, `L2` và bật `occluded` cho đoạn `R1` bị taxi che. Đã đối chiếu để giữ nguyên nhãn và thẻ của 20 ảnh bắt buộc từ revision 1. Bản gộp có 28 ảnh, 6 cảnh báo QC1-02 đã nêu ở trên và 0 cảnh báo mới.
 
+**Tự kiểm theo Road v1.0, revision 3.** Gán bổ sung thủ công và xuất lại nhãn trên CVAT.
+
+- A10 và A12 bổ sung 3 biển, gồm biển chỉ dẫn nhỏ ở A10, biển tròn và biển phụ ở A12.
+- B02 bổ sung mặt sau biển trên đảo giao thông và sửa hộp đèn đang sáng xanh thành `type=pedestrian`.
+- B10 và B12 căn lại biên polygon `crosswalk` để bao các đầu vạch sơn.
+
+Đã đối chiếu lô 28 ảnh với revision 2. Lint vẫn ghi 6 cảnh báo QC1-02 ở các vị trí đã giải thích tại mục 3. Không có cảnh báo mới.
+
 ## 5. Kiểm file export
 | File | Mở lại được? | Số shape ảnh 1 (job / file) | Số shape ảnh 2 (job / file) | Tag camera có trong XML? |
 | --- | --- | --- | --- | --- |
 | [hoangtrongtra-front.zip](hoangtrongtra-front.zip) | Có | A01: 4 / 4, A13: 5 / 5 | A02: 3 / 3, A14: 9 / 9 | Có, `front` trên cả 16 ảnh |
-| [hoangtrongtra-fisheye.zip](hoangtrongtra-fisheye.zip) | Có | B01: 1 / 1, B09: 2 / 2 | B02: 6 / 6, B10: 1 / 1 | Có, khớp hậu tố trên cả 12 ảnh |
+| [hoangtrongtra-fisheye.zip](hoangtrongtra-fisheye.zip) | Có | B01: 1 / 1, B09: 2 / 2 | B02: 7 / 7, B10: 1 / 1 | Có, khớp hậu tố trên cả 12 ảnh |
 
-Hai ZIP dùng **CVAT for images 1.1**, mỗi file chỉ chứa `annotations.xml`. Manifest revision 2 ghi số ảnh và SHA-256 của từng ZIP sau khi gộp.
+Hai ZIP dùng **CVAT for images 1.1**, mỗi file chỉ chứa `annotations.xml`. Manifest revision 3 ghi số ảnh và SHA-256 của từng ZIP sau khi gộp.
 
 ## 6. Ảnh chụp màn hình
 
@@ -73,7 +84,7 @@ Nếu nhận riêng file Markdown, mở [mục ảnh minh chứng trên GitHub](
 
 2. Một ảnh camera trước đã gán đủ (làn, vùng lái, đèn/biển).
 
-   ![A12 có làn, vùng lái, đèn và biển][minh-chung-a12]
+   ![CVAT A12 sau khi bổ sung biển chỉ dẫn và biển phụ][minh-chung-a12]
 
 3. Đường mép lề trên ảnh fisheye B05, vẽ lại từ tọa độ polyline đã xuất trong CVAT.
 
@@ -97,6 +108,10 @@ Nếu nhận riêng file Markdown, mở [mục ảnh minh chứng trên GitHub](
 CVAT xác nhận xuất nhãn hoàn tất cho hai task bổ sung.
 
 ![Hai lượt export nhãn bổ sung đã hoàn tất trên CVAT][minh-chung-export-extra]
+
+B02, B10 và B12 ở revision 3. Hình dưới được vẽ từ tọa độ nhãn trong hai bản xuất CVAT.
+
+![Các hộp ở B02 và biên crosswalk trước và sau khi chỉnh ở B10, B12][minh-chung-fisheye-r3]
 
 Dữ liệu BDD100K © 2018 The Regents of the University of California, theo BDD100K License.
 
@@ -127,3 +142,4 @@ Trả lời 3 câu:
 [minh-chung-b05]: ../../docs/images/submission-evidence/fisheye-b05-road-curb.png
 [minh-chung-a08]: ../../docs/images/submission-evidence/front-a08-doi-chieu.jpg
 [minh-chung-export-extra]: ../../docs/images/submission-evidence/cvat-export-extra.jpg
+[minh-chung-fisheye-r3]: ../../docs/images/submission-evidence/fisheye-revision-3.png
