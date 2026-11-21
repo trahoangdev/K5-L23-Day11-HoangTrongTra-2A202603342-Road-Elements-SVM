@@ -10,10 +10,10 @@ Thời điểm export (ngày giờ trên CVAT): 21/11/2026 (UTC+7), front 08:08,
 | 6 label, đúng kiểu | Có | `lane`, `road_curb` dùng polyline. `crosswalk`, `drivable` dùng polygon. `traffic_light`, `traffic_sign` dùng rectangle. |
 | Thuộc tính và giá trị | Có | Đã đối chiếu Raw Labels của project #39 với `configs/road_v1_labels.json`. |
 | 4 tag ảnh | Có | Đủ `camera`, `timeofday`, `weather`, `source` trên 28/28 ảnh. Giá trị `camera` khớp từng ảnh. Mỗi tag có thuộc tính select `value`. |
-Cách kết thúc polyline trên bản CVAT này: Bấm **Done** ở thanh trên sau khi đặt điểm cuối, hoặc nhấn `N`.\
-Cách đặt tag ảnh trên bản CVAT này: Chọn công cụ **Tag**, chọn nhãn, thêm tag rồi mở **Details** để chọn `value`. Đặt `camera` trước, sau đó đặt ba tag còn lại.
+Cách kết thúc polyline trên bản CVAT này: Bấm **Done** ở thanh trên sau khi đặt điểm cuối, hoặc nhấn `N`.| Có |
+Cách đặt tag ảnh trên bản CVAT này: Chọn công cụ **Tag**, chọn nhãn, thêm tag rồi mở **Details** để chọn `value`. Đặt `camera` trước, sau đó đặt ba tag còn lại.| Có |
 
-Bộ nộp có đủ 5 file theo `SUBMISSION.md`. Bốn job #23–#26 đều ở trạng thái **Completed**. Mục 5 đối chiếu hai ZIP sau khi gộp.
+
 
 ## 2. Số lượng đã gán
 | Task | Ảnh | lane | road_curb | crosswalk | drivable | traffic_light | traffic_sign |
@@ -41,7 +41,7 @@ Bộ nộp có đủ 5 file theo `SUBMISSION.md`. Bốn job #23–#26 đều ở
 | B11 | `lane` | Vạch dọc của làn hay biên ô đỗ | Giữ bốn thẻ ảnh | Các nét nhìn rõ là vạch ô đỗ và vạch kẻ vùng đệm của ô đỗ. |
 
 ## 4. Phiếu QC 1 nhận được
-Bạn kiểm lô của tôi: Nguyễn Quốc Hùng.  Quyết định nhận được: **Rework** (phiếu ngày 21/11/2026, ghi revision 1).
+Bạn kiểm lô của tôi: Nguyễn Quốc Hưng.  Quyết định nhận được: **Rework** (phiếu ngày 21/11/2026, ghi revision 1).
 
 | Mã lỗi | Số lỗi | Đồng ý? | Đã sửa? |
 | --- | ---: | --- | --- |
